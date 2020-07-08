@@ -52,7 +52,7 @@ stateFromLower <-function(x) {
 #Now I'm applying the function onto my data set and saving it as a new variable 'data'
 data <- stateFromLower(va_use$client_demo_state)
 data <- as.data.frame(data)
-data <- cbind.data.frame(data,va_use$avg_gains,va_use$var_gains)
+data <- cbind.data.frame(data,va_use$avg_va,va_use$var_va)
 summary(data$`va_use$avg_va`)
 data$region <- tolower(data$data)
 #AS I'm doing the heat map I'll neep these packages to get the map of the US. 
@@ -66,6 +66,7 @@ map.df <- map.df[order(map.df$order),]
 # this 'b' helps to get a range that I can adjust for the heatmap values. 
 #b = c(-.15,.6)
 b = c(-.1,.4)
+
 
 #Here I'm graphing the heat map of the VA across the US and saving the graph as a variable. 
 blue_va_graph <-ggplot(map.df, aes(x=long,y=lat,group=group))+
